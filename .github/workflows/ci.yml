@@ -68,7 +68,7 @@ jobs:
           key: ${{ secrets.SERVER_KEY }}
           port: ${{ secrets.SERVER_PORT }}
           script: |
-            cd /root/nuxt-demo
+            cd /home/nuxt-demo
             wget https://github.com/wwwpppfffzzz/nuxt-demo/releases/latest/download/release.tgz -O release.tgz
             tar zxvf release.tgz
             npm install --production
