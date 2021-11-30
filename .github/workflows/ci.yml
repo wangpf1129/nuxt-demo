@@ -71,4 +71,4 @@ jobs:
             cd /home/nuxt-demo
             wget https://github.com/wwwpppfffzzz/nuxt-demo/releases/latest/download/release.tgz -O release.tgz
             tar zxvf release.tgz
-            npm install --production
+            yarn install
