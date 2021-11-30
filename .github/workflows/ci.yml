@@ -36,7 +36,7 @@ jobs:
           yarn install
           yarn build
           ls
-          - run: tar -zcvf release.tgz .nuxt static nuxt.config.js package.json yarn.lock pm2.config.json
+          tar -zcvf release.tgz .nuxt static nuxt.config.js package.json yarn.lock pm2.config.json
 
       - name: Create Release
         id: create_release
