@@ -51,7 +51,9 @@
         </svg>
       </a>
       <div class="mt-8 bg-white overflow-hidden shadow sm:rounded-lg p-6">
-        <h2 class="text-2xl leading-7 font-semibold">Hello nuxt demo</h2>
+        <h2 class="text-2xl leading-7 font-semibold">
+          Hello nuxt demo test 1.0
+        </h2>
         <p class="mt-3 text-gray-600">
           We recommend you take a look at the
           <a
