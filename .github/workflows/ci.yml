@@ -72,4 +72,4 @@ jobs:
             wget https://github.com/wwwpppfffzzz/nuxt-demo/releases/latest/download/release.tgz -O release.tgz
             tar zxvf release.tgz
             yarn install
-            pm2 reload pm2.config.js
+            pm2 reload pm2.config.json
