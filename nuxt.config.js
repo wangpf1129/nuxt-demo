@@ -39,7 +39,12 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/sentry',
   ],
+  sentry: {
+    dsn: 'https://145a57e3050047269d79f9fad897254a@o1065687.ingest.sentry.io/6096262',
+    config: {},
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},

@@ -2,8 +2,8 @@
   {
     "name": "index",
     "path": "/",
-    "component": "G:\\\\我的项目\\\\小demo\\\\nuxt-demo\\\\nuxt-demo\\\\pages\\\\index.vue",
+    "component": "/Users/wangpengfei/Documents/Code/my-project/nuext-demo/pages/index.vue",
     "chunkName": "pages/index",
-    "_name": "_06614f67"
+    "_name": "_3fa4ad48"
   }
 ]
