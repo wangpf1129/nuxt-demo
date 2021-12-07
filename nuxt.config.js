@@ -43,17 +43,46 @@ export default {
   ],
   sentry: {
     dsn: 'https://145a57e3050047269d79f9fad897254a@o1065687.ingest.sentry.io/6096262',
-    config: {},
+    tracing: {
+      // 以下是性能监控默认配置
+      tracesSampleRate: 1.0,
+      vueOptions: {
+        tracing: true,
+        tracingOptions: {
+          hooks: ['mount', 'update'],
+          timeout: 2000,
+          trackComponents: true,
+        },
+      },
+      browserOptions: {},
+    },
+    config: {
+      environment:
+        process.env.NODE_ENV === 'prod' ? 'production' : 'development',
+    },
+    clientIntegrations: {
+      Vue: {
+        attachProps: true, // 允许Sentry上报Vue组件Props
+        logErrors: true, // 引入Sentry SDK后，默认不会将报错打印到控制台，将logErrors设为true强制将报错打印到控制台
+      },
+    },
+    publishRelease: {
+      authToken:
+        '05ee00e20c1b4b63a5e651dd69756d96701619cb93d74bdd8fc6c8d1f8e2371f',
+      org: 'wangpf',
+      project: 'vue',
+      setCommits: {
+        // 以 commit 版本号 来代替 release
+        auto: true, // set by default
+      },
+    },
   },
   extend(config, { isDev, isClient }) {
-    if (isClient && !isDev) {
-      config.devtool = 'source-map' // 处理client 增加sourcemap
-      const release = 'demo-test23' // 可以根据package.json的版本号或者Git的tag命名
-      const SentryPlugin = require('@sentry/webpack-plugin')
+    if (isClient) {
+      const SentryWebpackPlugin = require('@sentry/webpack-plugin')
       config.plugins.push(
-        new SentryPlugin({
+        new SentryWebpackPlugin({
           include: 'nuxt-dist/dist/client', // 要上传的文件夹 不能写为 ./dist 因为dist文件夹是编译好再复制出来的
-          release,
           configFile: 'sentry.properties', // 这里就是默认读取根目录下的 .sentryclirc文件
           debug: true, // 这个是开启调试 出了错也可以看见
           ignore: ['node_modules', 'webpack.config.js'],
@@ -64,7 +93,6 @@ export default {
       )
     }
   },
-
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
