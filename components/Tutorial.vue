@@ -1,6 +1,6 @@
 <!-- Please remove this file from your project -->
 <template>
-  <div @click="testSentry">test sentry 1.2</div>
+  <div @click="testSentry">test sentry 1.3</div>
 </template>
 
 <script>
