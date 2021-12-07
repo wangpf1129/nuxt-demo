@@ -35,7 +35,7 @@ jobs:
           yarn install
           yarn build
           mkdir nuxt-build
-          mv nuxt-dist static nuxt.config.js package.json yarn.lock pm2.config.json -t nuxt-build
+          mv nuxt-dist static nuxt.config.js package.json yarn.lock pm2.config.json .gitignore -t nuxt-build
 
       - name: Transfer to build branch
         uses: JamesIves/github-pages-deploy-action@releases/v3
