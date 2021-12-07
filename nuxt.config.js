@@ -66,16 +66,6 @@ export default {
         logErrors: true, // 引入Sentry SDK后，默认不会将报错打印到控制台，将logErrors设为true强制将报错打印到控制台
       },
     },
-    publishRelease: {
-      authToken:
-        '05ee00e20c1b4b63a5e651dd69756d96701619cb93d74bdd8fc6c8d1f8e2371f',
-      org: 'wangpf',
-      project: 'vue',
-      setCommits: {
-        // 以 commit 版本号 来代替 release
-        auto: true, // set by default
-      },
-    },
   },
   extend(config, { isDev, isClient }) {
     if (isClient) {
