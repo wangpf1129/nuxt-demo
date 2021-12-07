@@ -1,9 +1,8 @@
 name: publish and deploy
-
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - master
 
 jobs:
   ci:
@@ -36,29 +35,14 @@ jobs:
           yarn install
           yarn build
           ls
-          tar -zcvf release.tgz nuxt-dist static nuxt.config.js package.json yarn.lock pm2.config.json
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      - name: Transfer to build branch
+        uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
-
-      - name: Upload Release Asset👀
-        id: upload-release-asset
-        uses: actions/upload-release-asset@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./release.tgz
-          asset_name: release.tgz
-          asset_content_type: application/x-tgz
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ACCESS_TOKEN: ${{ secrets.TOKEN }}
+          BRANCH: build
+          FOLDER: nuxt-dist static nuxt.config.js package.json yarn.lock pm2.config.json
 
       - name: Deploy
         uses: appleboy/ssh-action@master
@@ -69,7 +53,7 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           script: |
             cd /home/nuxt-demo
-            wget https://github.com/wwwpppfffzzz/nuxt-demo/releases/latest/download/release.tgz -O release.tgz
-            tar zxvf release.tgz
-            yarn install
+            git pull
+            git log
+            git checkout build
             pm2 reload pm2.config.json
