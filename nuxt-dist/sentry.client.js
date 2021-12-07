@@ -10,7 +10,7 @@ export default function (ctx, inject) {
   const config = {
     dsn:"https:\u002F\u002F145a57e3050047269d79f9fad897254a@o1065687.ingest.sentry.io\u002F6096262",
     environment:"development",
-    release:"fbd1e3dc8518ff50ca9e3feb41b02352adcce241",
+    release:"1242ad79786b08d10d97d4d0d4bd29859b46eab9",
     tracesSampleRate:1
   }
 
