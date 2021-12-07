@@ -1,6 +1,6 @@
 <!-- Please remove this file from your project -->
 <template>
-  <div @click="testSentry">nuxt demo 1</div>
+  <div @click="testSentry">test sentry 1.0</div>
 </template>
 
 <script>
