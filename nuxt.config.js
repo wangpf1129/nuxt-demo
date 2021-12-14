@@ -66,14 +66,16 @@ export default {
         logErrors: true, // 引入Sentry SDK后，默认不会将报错打印到控制台，将logErrors设为true强制将报错打印到控制台
       },
     },
+    release: 'test1.0',
   },
   extend(config, { isDev, isClient }) {
     if (isClient) {
       const SentryWebpackPlugin = require('@sentry/webpack-plugin')
       config.plugins.push(
         new SentryWebpackPlugin({
-          include: 'nuxt-dist/dist/client', // 要上传的文件夹 不能写为 ./dist 因为dist文件夹是编译好再复制出来的
+          include: './nuxt-dist/dist/client', // 要上传的文件夹 不能写为 ./dist 因为dist文件夹是编译好再复制出来的
           configFile: 'sentry.properties', // 这里就是默认读取根目录下的 .sentryclirc文件
+          release: 'test1.0',
           debug: true, // 这个是开启调试 出了错也可以看见
           ignore: ['node_modules', 'webpack.config.js'],
           // 比如说我网站的js文件地址为为 http://plinghuang.cn/[hash].js 就是下面的配置
