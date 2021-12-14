@@ -3,12 +3,15 @@ import merge from 'lodash.mergewith'
 import * as Sentry from '@sentry/browser'
 import { Dedupe, ExtraErrorData, ReportingObserver, RewriteFrames, Vue } from '@sentry/integrations'
 
+import { Integrations as TracingIntegrations } from '@sentry/tracing'
+
 export default function (ctx, inject) {
   /* eslint-disable object-curly-spacing, quote-props, quotes, key-spacing, comma-spacing */
   const config = {
     dsn:"https:\u002F\u002F145a57e3050047269d79f9fad897254a@o1065687.ingest.sentry.io\u002F6096262",
     environment:"development",
-    release:"8c01c5f70cbc7135b5c0e879ca5edef4205a3ba4"
+    release:"1242ad79786b08d10d97d4d0d4bd29859b46eab9",
+    tracesSampleRate:1
   }
 
   const runtimeConfigKey = "sentry"
@@ -21,8 +24,10 @@ export default function (ctx, inject) {
     new ExtraErrorData({}),
     new ReportingObserver({}),
     new RewriteFrames({}),
-    new Vue({ Vue: VueLib, ...{"attachProps":true,"logErrors":true}})
+    new Vue({ Vue: VueLib, ...{"attachProps":true,"logErrors":true,"tracing":true,"tracingOptions":{"hooks":["mount","update"],"timeout":2000,"trackComponents":true}}})
   ]
+
+    config.integrations.push(new TracingIntegrations.BrowserTracing({}))
 
   /* eslint-enable object-curly-spacing, quote-props, quotes, key-spacing, comma-spacing */
   Sentry.init(config)

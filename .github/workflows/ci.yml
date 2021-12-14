@@ -55,7 +55,7 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           script: |
             cd /home/nuxt-demo
-            git pull
             git checkout build
+            git pull
             yarn install
             pm2 reload pm2.config.json

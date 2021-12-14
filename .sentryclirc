@@ -1,13 +1,11 @@
 # vim .sentryclirc
 
 [defaults]
-url = https://sentry.io
-org = "wangpf"
-project = "vue"
+url = "https://sentry.io/"
+org = "Wangpf"
+project = "nuxt-demo"
 
 [auth]
-# 身份令牌 在sentry服务端 setting-》accout->api->auth Tokens 创建一个新的就好
-# 注意这里要有project:write 权限 下面我会给出具体页面，看着上面路径进去就好。
 token = "05ee00e20c1b4b63a5e651dd69756d96701619cb93d74bdd8fc6c8d1f8e2371f"
 
 
