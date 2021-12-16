@@ -1,9 +1,8 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   server: {
-    port: 3000,
-    host: '0.0.0.0',
-    timing: false,
+    host: '127.0.0.1',
+    port: 3333,
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {

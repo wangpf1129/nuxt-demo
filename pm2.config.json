@@ -2,7 +2,7 @@
   "apps": [
     {
       "name": "nuxt-demo",
-      "script": "yarn",
+      "script": "./node_modules/nuxt/bin/nuxt.js",
       "args": "start"
     }
   ]
