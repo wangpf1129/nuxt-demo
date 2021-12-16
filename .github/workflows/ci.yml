@@ -58,4 +58,4 @@ jobs:
             git checkout build
             git pull
             yarn install
-            pm2 reload pm2.config.json
+            node ./node_modules/nuxt/bin/nuxt.js
