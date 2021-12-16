@@ -1,9 +1,5 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  server: {
-    host: '0.0.0.0',
-    port: 3333,
-  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'nuxt-demo',
@@ -72,13 +68,12 @@ export default {
       const SentryWebpackPlugin = require('@sentry/webpack-plugin')
       config.plugins.push(
         new SentryWebpackPlugin({
-          include: './nuxt-dist/dist/client', // 要上传的文件夹 不能写为 ./dist 因为dist文件夹是编译好再复制出来的
-          configFile: 'sentry.properties', // 这里就是默认读取根目录下的 .sentryclirc文件
+          include: './nuxt-dist/dist/client',
+          configFile: 'sentry.properties',
           release: 'test1.0',
-          debug: true, // 这个是开启调试 出了错也可以看见
+          debug: true,
           ignore: ['node_modules', 'webpack.config.js'],
-          // 比如说我网站的js文件地址为为 http://plinghuang.cn/[hash].js 就是下面的配置
-          urlPrefix: '~/', // ~/为网站根目录，后续路径须对应source
+          urlPrefix: '~/',
           cleanArtifacts: true,
         })
       )
