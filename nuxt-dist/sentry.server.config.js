@@ -1,2 +1,2 @@
 /* eslint-disable */
-export const config = {"environment":"development","release":"8c01c5f70cbc7135b5c0e879ca5edef4205a3ba4"}
+export const config = {"environment":"development","release":"5bd63970a61c3e5134d7171140d6822aeee4d88a"}
