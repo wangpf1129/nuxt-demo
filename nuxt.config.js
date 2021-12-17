@@ -76,12 +76,13 @@ export default {
     extend(config, { isDev, isClient }) {
       if (!isDev && isClient) {
         config.devtool = 'source-map'
+        const release = 'demo-test1.0'
         const SentryWebpackPlugin = require('@sentry/webpack-plugin')
         config.plugins.push(
           new SentryWebpackPlugin({
             include: 'nuxt-dist/dist/client',
             configFile: 'sentry.properties',
-            release: 'test1.1',
+            release,
             debug: true,
             ignore: ['node_modules', 'webpack.config.js'],
             urlPrefix: '~/',
