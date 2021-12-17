@@ -58,5 +58,4 @@ jobs:
             git checkout build
             git pull
             yarn install --production
-            pm2 reload pm2.config.json
 
