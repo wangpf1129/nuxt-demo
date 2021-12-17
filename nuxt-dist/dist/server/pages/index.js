@@ -96,12 +96,12 @@ module.exports = ___CSS_LOADER_EXPORT___;
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Tutorial.vue?vue&type=template&id=52679672&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{on:{"click":_vm.testSentry}},[_c('nuxt-logo'),_vm._ssrNode("\n  test sentry 1107\n")],2)}
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Tutorial.vue?vue&type=template&id=249b660c&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{on:{"click":_vm.testSentry}},[_c('nuxt-logo'),_vm._ssrNode("\n  test sentry 1125\n")],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Tutorial.vue?vue&type=template&id=52679672&
+// CONCATENATED MODULE: ./components/Tutorial.vue?vue&type=template&id=249b660c&
 
 // EXTERNAL MODULE: ./components/NuxtLogo.vue + 2 modules
 var NuxtLogo = __webpack_require__(23);
@@ -130,7 +130,7 @@ var NuxtLogo = __webpack_require__(23);
   computed: {},
   methods: {
     testSentry() {
-      throw new Error('错误1107');
+      throw new Error('错误1125');
     }
 
   }
