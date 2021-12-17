@@ -1,9 +1,0 @@
-{
-  "apps": [
-    {
-      "name": "nuxt-demo",
-      "script": "yarn",
-      "args": "start"
-    }
-  ]
-}
