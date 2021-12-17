@@ -2,7 +2,7 @@
 <template>
   <div @click="testSentry">
     <nuxt-logo />
-    test sentry 16.23
+    test sentry 1107
   </div>
 </template>
 
@@ -18,7 +18,7 @@ export default {
   computed: {},
   methods: {
     testSentry() {
-      throw new Error('错误1623')
+      throw new Error('错误1107')
     },
   },
 }

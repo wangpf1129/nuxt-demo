@@ -1,8 +1,8 @@
 name: publish and deploy
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - master
 
 jobs:
   ci:
