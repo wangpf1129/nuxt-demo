@@ -3,7 +3,7 @@
   "all": [
     "../server/index.spa.html",
     "../server/index.ssr.html",
-    "00cb581.js",
+    "1355860.js",
     "162029c.js",
     "5351d3b.js",
     "5eee7fe.js",
@@ -16,7 +16,7 @@
     "b297aec.js",
     "c6b0185.js",
     "f240346.js",
-    "00cb581.js"
+    "1355860.js"
   ],
   "async": [
     "162029c.js",
@@ -1161,7 +1161,7 @@
   },
   "assetsMapping": {
     "1a3ae26b": [
-      "00cb581.js"
+      "1355860.js"
     ],
     "2a130dde": [
       "162029c.js"
