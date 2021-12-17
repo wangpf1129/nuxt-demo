@@ -4,7 +4,7 @@
     "../server/index.spa.html",
     "../server/index.ssr.html",
     "0112f4e.js",
-    "5a3127f.js",
+    "36bf6f0.js",
     "5eee7fe.js",
     "LICENSES",
     "b749b52.js",
@@ -16,7 +16,7 @@
     "b9ece7b.js",
     "c6b0185.js",
     "f240346.js",
-    "5a3127f.js"
+    "36bf6f0.js"
   ],
   "async": [
     "0112f4e.js",
@@ -1164,7 +1164,7 @@
       "0112f4e.js"
     ],
     "1a3ae26b": [
-      "5a3127f.js"
+      "36bf6f0.js"
     ],
     "51bae372": [
       "5eee7fe.js"
