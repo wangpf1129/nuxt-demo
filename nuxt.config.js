@@ -1,3 +1,5 @@
+import SentryWebpackPlugin from "@sentry/webpack-plugin";
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -65,27 +67,28 @@ export default {
         logErrors: true, // 引入Sentry SDK后，默认不会将报错打印到控制台，将logErrors设为true强制将报错打印到控制台
       },
     },
-    release: 'test1.0',
-  },
-  extend(config, { isDev, isClient }) {
-    if (isClient) {
-      const SentryWebpackPlugin = require('@sentry/webpack-plugin')
-      config.plugins.push(
-        new SentryWebpackPlugin({
-          include: './nuxt-dist/dist/client',
-          configFile: 'sentry.properties',
-          release: 'test1.0',
-          debug: true,
-          ignore: ['node_modules', 'webpack.config.js'],
-          urlPrefix: '~/',
-          cleanArtifacts: true,
-        })
-      )
-    }
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    extend(config, { isDev, isClient }) {
+      if (!isDev && isClient) {
+        config.devtool = 'source-map'
+        const SentryWebpackPlugin = require('@sentry/webpack-plugin')
+        config.plugins.push(
+          new SentryWebpackPlugin({
+            include: 'nuxt-dist/dist/client',
+            configFile: 'sentry.properties',
+            release: 'test1.1',
+            debug: true,
+            ignore: ['node_modules', 'webpack.config.js'],
+            urlPrefix: '~/',
+            cleanArtifacts: true,
+          })
+        )
+      }
+    },
+  },
 }
