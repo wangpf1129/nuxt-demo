@@ -57,5 +57,4 @@ jobs:
             cd /home/nuxt-demo
             git checkout build
             git pull
-            yarn install --production
 
