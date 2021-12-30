@@ -16,10 +16,10 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   server: {
-    host: '0.0.0.0', // default: localhost
-    port: 3333
+    host: process.env.NUXT_HOST,
+    port: process.env.NUXT_PORT,
   },
-  buildDir: 'nuxt-dist',
+  // buildDir: '.nuxt',
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
@@ -39,53 +39,11 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/sentry',
   ],
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    extend(config, { isDev, isClient }) {
-      if (!isDev && isClient) {
-        config.devtool = 'source-map'
-        const SentryWebpackPlugin = require('@sentry/webpack-plugin')
-        config.plugins.push(
-          new SentryWebpackPlugin({
-            include: 'nuxt-dist/dist/client',
-            configFile: 'sentry.properties',
-            ignore: ['node_modules', 'webpack.config.js'],
-            urlPrefix: '~/',
-            cleanArtifacts: true,
-          })
-        )
-      }
-    },
-  },
-  sentry: {
-    dsn: 'https://145a57e3050047269d79f9fad897254a@o1065687.ingest.sentry.io/6096262',
-    tracing: {
-      // 以下是性能监控默认配置
-      tracesSampleRate: 1.0,
-      vueOptions: {
-        tracing: true,
-        tracingOptions: {
-          hooks: ['mount', 'update'],
-          timeout: 2000,
-          trackComponents: true,
-        },
-      },
-      browserOptions: {},
-    },
-    config: {
-      environment:
-        process.env.NODE_ENV === 'prod' ? 'production' : 'development',
-    },
-    clientIntegrations: {
-      Vue: {
-        attachProps: true, // 允许Sentry上报Vue组件Props
-        logErrors: true, // 引入Sentry SDK后，默认不会将报错打印到控制台，将logErrors设为true强制将报错打印到控制台
-      },
-    },
   },
 }

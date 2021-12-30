@@ -1,8 +1,8 @@
 <!-- Please remove this file from your project -->
 <template>
-  <div @click="testSentry">
+  <div class="center">
     <nuxt-logo />
-    test sentry 1347
+    <h2>hello docker!!!!</h2>
   </div>
 </template>
 
@@ -10,16 +10,16 @@
 import NuxtLogo from '~/components/NuxtLogo.vue'
 export default {
   components: { NuxtLogo },
-  data() {
-    return {
-      a: 123,
-    }
-  },
+  data() {},
   computed: {},
   methods: {
-    testSentry() {
-      throw new Error('错误1347')
-    },
   },
 }
 </script>
+
+<style>
+.center{
+  display: block;
+  text-align: center;
+}
+</style>
