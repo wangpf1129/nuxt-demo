@@ -1,4 +1,9 @@
 # Created by .ignore support plugin (hsz.mobi)
+
+Dockerfile-dev
+docker-compose-dev.yml
+
+.husky/
 ### Node template
 # Logs
 /logs
