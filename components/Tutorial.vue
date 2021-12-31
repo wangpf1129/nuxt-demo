@@ -1,7 +1,7 @@
 <template>
   <div class="center">
     <nuxt-logo />
-    <h2>hello docker!!</h2>
+    <h2>hello docker!</h2>
     <h3>the project in docker running!</h3>
   </div>
 </template>

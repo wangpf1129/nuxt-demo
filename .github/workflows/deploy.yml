@@ -16,17 +16,17 @@ jobs:
         with:
           node-version: '14'
 
-#      - name: Build nuxt
-#        run: |
-#          npm install
-#          npm run build
-#
-#      - name: Build the Docker image to tencentyun
-#        run: |
-#          docker login ccr.ccs.tencentyun.com -u=100016773380 -p=wang1234
-#          docker build -t nuxt-demo:latest .
-#          docker tag nuxt-demo:latest ccr.ccs.tencentyun.com/wangpf/nuxt-demo:latest
-#          docker push ccr.ccs.tencentyun.com/wangpf/nuxt-demo:latest
+      - name: Build nuxt
+        run: |
+          npm install
+          npm run build
+
+      - name: Build the Docker image to tencentyun
+        run: |
+          docker login ccr.ccs.tencentyun.com -u=100016773380 -p=wang1234
+          docker build -t nuxt-demo:latest .
+          docker tag nuxt-demo:latest ccr.ccs.tencentyun.com/wangpf/nuxt-demo:latest
+          docker push ccr.ccs.tencentyun.com/wangpf/nuxt-demo:latest
 
       - name: ssh login && run docker
         uses: appleboy/ssh-action@master
@@ -35,5 +35,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SERVER_KEY }}
           passphrase: ${{ secrets.SSHKEYPASSWORD  }}
-#          script: cd /wangpf/nuxt-demo/ && sh docker-deploy.sh
-          script: cd /wangpf/nuxt-demo/ && touch text.txt
+          script: cd /wangpf/nuxt-demo/ && sh docker-deploy.sh
