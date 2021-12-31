@@ -34,5 +34,6 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SERVER_KEY }}
+          passphrase: ${{ secrets.SSHKEYPASSWORD  }}
 #          script: cd /wangpf/nuxt-demo/ && sh docker-deploy.sh
           script: cd /wangpf/nuxt-demo/ && touch text.txt
